@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Test</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/rx/dist/rx.all.js"></script>
+  <script src="node_modules/underscore/underscore.js"></script>
+
+  <script src="tickerController.js"></script>
+  <script src="Directives/keyPressDirective.js"></script>
+  <script src="Services/tickerService.js"></script>
+</head>
+
+  <body ng-app="myapp">
+        <time></time><label id="tickContainer">
+        <div id="container">Try to change your xml data to update this content</div>
+    <script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <div ng-controller="TickerController as ctrl" >
+
+        <input type="text" ng-model="ctrl.searchString"
+        ng-change="ctrl.onSearchChanged()" />
+        <p>{{ctrl.searchString}}</p>
+        <select data-ng-options="o.FIELD1 for o in ctrl.companies"
+            data-ng-model="ctrl.selectedCompany">
+        </select>
+    </div>
+    </body>
+
+</html>

@@ -1,0 +1,24 @@
+4321 silly gunzTarPerm extractEntry node_modules/rc/node_modules/ini/LICENSE
+4322 silly gunzTarPerm extractEntry node_modules/rc/node_modules/ini/ini.js
+4323 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+4324 silly gunzTarPerm extractEntry node_modules/rc/node_modules/ini/.npm-completion.tmp
+4325 silly gunzTarPerm extractEntry node_modules/rc/node_modules/ini/test/bar.js
+4326 error Error: ENOENT, lstat '/usr/local/lib/node_modules/node-inspector/node_modules/v8-profiler/node_modules/node-pre-gyp/node_modules/mkdirp/node_modules/minimist/test/long.js'
+4327 error If you need help, you may report this log at:
+4327 error     <http://github.com/isaacs/npm/issues>
+4327 error or email it to:
+4327 error     <npm-@googlegroups.com>
+4328 error System Linux 3.13.0-43-generic
+4329 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "node-inspector"
+4330 error cwd /home/david/Tech/Web/ChromeDev/Test/Server
+4331 error node -v v0.10.25
+4332 error npm -v 1.3.10
+4333 error path /usr/local/lib/node_modules/node-inspector/node_modules/v8-profiler/node_modules/node-pre-gyp/node_modules/mkdirp/node_modules/minimist/test/long.js
+4334 error fstream_path /usr/local/lib/node_modules/node-inspector/node_modules/v8-profiler/node_modules/node-pre-gyp/node_modules/mkdirp/node_modules/minimist/test/long.js
+4335 error fstream_type File
+4336 error fstream_class FileWriter
+4337 error code ENOENT
+4338 error errno 34
+4339 error fstream_stack /usr/lib/nodejs/fstream/lib/writer.js:284:26
+4339 error fstream_stack Object.oncomplete (fs.js:107:15)
+4340 verbose exit [ 34, true ]
