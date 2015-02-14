@@ -33,11 +33,6 @@ io.sockets.on('connection', function(socket) {
     });
     console.log('len' + responses.length);
 
-    // var company={
-    //   name:companies[0].FIELD1,
-    //   time: new Date()
-    // };
-
       var tickJson = JSON.stringify(responses);
 
       socket.volatile.emit('notification', tickJson);

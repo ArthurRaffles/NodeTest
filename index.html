@@ -10,13 +10,11 @@
   <script src="node_modules/underscore/underscore.js"></script>
 
   <script src="tickerController.js"></script>
-  <script src="Directives/keyPressDirective.js"></script>
+
   <script src="Services/tickerService.js"></script>
 </head>
 
   <body ng-app="myapp">
-        <time></time><label id="tickContainer">
-        <div id="container">Try to change your xml data to update this content</div>
     <script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
@@ -27,8 +25,9 @@
         <input type="text" ng-model="ctrl.searchString"
         ng-change="ctrl.onSearchChanged()" />
         <p>{{ctrl.searchString}}</p>
-        <select data-ng-options="o.FIELD1 for o in ctrl.companies"
-            data-ng-model="ctrl.selectedCompany">
+        <select ng-options="o.FIELD1 for o in ctrl.companies"
+            ng-model="ctrl.selectedCompany"
+            ng-change="ctrl.companySelected()">
         </select>
     </div>
     </body>
