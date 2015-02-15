@@ -5,9 +5,14 @@
   <title>Test</title>
 
   <link rel="stylesheet" href="styles.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/rx/dist/rx.all.js"></script>
   <script src="node_modules/underscore/underscore.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <style src="node_modules/bootstrap/dist/css/bootstrap.css"></style>
+  <script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 
   <script src="tickerController.js"></script>
 
@@ -15,8 +20,6 @@
 </head>
 
   <body ng-app="myapp">
-    <script src="node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
     <script src="app.js"></script>
 
@@ -29,15 +32,42 @@
             ng-model="ctrl.selectedCompany"
             ng-change="ctrl.companySelected()">
         </select>
-        <ul>
-          <li ng-repeat="sub in ctrl.subscriptions">
-            <div>
-              {{sub.symbol.FIELD1}}{{sub.price}}
+        <!-- <ul>
+          <li ng-repeat="sub in ctrl.subscriptions"> -->
+            <div class="row" >
+              <div ng-repeat="sub in ctrl.subscriptions">
+
+
+              <div class="col-md-3" >
+                {{sub.symbol}}
+              </div>
+              <div class="col-md-3">
+                {{sub.price}}
+              </div>
+
+              <div class="col-md-3">
+                <button ng-click="ctrl.endSubscription(sub)">disconnect</button>
+              </div>
             </div>
-          </li>
-        </ul>
+          </div>
+          <!-- </li>
+        </ul> -->
 
     </div>
+    <div class="row">
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+</div>
     </body>
 
 </html>

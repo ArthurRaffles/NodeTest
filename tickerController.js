@@ -6,6 +6,7 @@
    this.searchString="";
    this.companies=[];
    this.subscriptions = {};
+   this.disposables={};
    this.selectedCompany;
 
     var that = this;
@@ -37,13 +38,18 @@
       TickerController.prototype.companySelected=function(){
         console.log(this.selectedCompany);
         var that = this;
-        this.tickerService.createTickersubscription(this.selectedCompany)
+        var disp = this.tickerService.createTickersubscription(this.selectedCompany)
           .subscribe(function(tick){
             console.log(tick);
-            that.subscriptions[tick.symbol.FIELD1] = tick;
+            that.subscriptions[tick.symbol] = tick;
             that.$scope.$apply();
           }, function(err){
             console.log("err in subs " + err);
           });
+          this.disposables[this.selectedCompany.FIELD1] = disp;
+      }
+      TickerController.prototype.endSubscription=function(subscription){
+        console.log("unsubscribing " + subscription);
+        this.disposables[subscription.symbol].dispose();
       }
 }

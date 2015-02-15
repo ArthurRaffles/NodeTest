@@ -35,6 +35,13 @@ function TickerService(){
 
 
       socket.emit('tickerRequest', JSON.stringify(payload));
+
+      return function () {
+        console.log('about to dispose of ' + payload);
+        //socket.disconnect();
+        socket.emit('tickerEnd', JSON.stringify(payload));
+        console.log('disposed');
+      };
     });
   }
 
