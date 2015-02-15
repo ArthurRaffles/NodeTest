@@ -16,23 +16,32 @@ function handler(req, res) {
 // creating a new websocket to keep the content updated without any AJAX request
 io.sockets.on('connection', function(socket) {
 
-  console.log(__dirname);
-  // watching the xml file
+    socket.on('tickerRequest', function(payload){
 
-   //rx.Observable.just1("test");
-   rx.Observable
-    .interval(1000 /* ms */)
-    .timeInterval()
-    .subscribe(function(x){
-      var tick = {
-        time: new Date(),
-        symbol: "BARC.L",
-        price: Math.random()*100,
+      var company = JSON.parse(payload).data;
+      console.log("requesting for: " + company);
 
-      };
-      var tickJson = JSON.stringify(tick);
-      var json = '{ "time" : "' + new Date() + '"}';
-      socket.volatile.emit('notification', tickJson);
-    });
+
+       var disp = rx.Observable
+        .interval(1000 /* ms */)
+        .timeInterval()
+        .subscribe(function(x){
+          var tick = {
+            time: new Date(),
+            symbol: company,
+            price: Math.random()*100,
+
+          };
+          var tickJson = JSON.stringify(tick);
+          console.log("emitting : " + tickJson);
+          socket.volatile.emit('tick', tickJson);
+        });
+      });
+
+    socket.on('disconnect', function(){
+      console.log(   ' has disconnected from tickerServer.' + socket.id);
+      //disp.dispose();
+      console.log("disconnected");
+      });
 
   });

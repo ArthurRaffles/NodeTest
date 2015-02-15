@@ -5,6 +5,7 @@
    this.$scope = $scope;
    this.searchString="";
    this.companies=[];
+   this.subscriptions = {};
    this.selectedCompany;
 
     var that = this;
@@ -35,5 +36,14 @@
       }
       TickerController.prototype.companySelected=function(){
         console.log(this.selectedCompany);
+        var that = this;
+        this.tickerService.createTickersubscription(this.selectedCompany)
+          .subscribe(function(tick){
+            console.log(tick);
+            that.subscriptions[tick.symbol.FIELD1] = tick;
+            that.$scope.$apply();
+          }, function(err){
+            console.log("err in subs " + err);
+          });
       }
 }

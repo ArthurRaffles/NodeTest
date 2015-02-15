@@ -29,6 +29,14 @@
             ng-model="ctrl.selectedCompany"
             ng-change="ctrl.companySelected()">
         </select>
+        <ul>
+          <li ng-repeat="sub in ctrl.subscriptions">
+            <div>
+              {{sub.symbol.FIELD1}}{{sub.price}}
+            </div>
+          </li>
+        </ul>
+
     </div>
     </body>
 
