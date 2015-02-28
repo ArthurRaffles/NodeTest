@@ -1,0 +1,23 @@
+#greeting {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  margin: 15px;
+}
+.v-center {
+
+       display:table-cell;
+
+     vertical-align:middle;
+
+}
+
+.table-cell {
+  padding: 8px;
+
+
+  border-top: 1px solid #ddd;
+}
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}

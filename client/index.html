@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Test</title>
+  <link rel="stylesheet" href="content/styles.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <!-- <script src="../node_modules/angular/angular.js"></script>-->
+  <script src="../node_modules/rx/dist/rx.all.js"></script>
+  <script src="../node_modules/underscore/underscore.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
+  <!-- // <script src="tickers/tickerController.js"></script>
+  // <script src="services/tickerService.js"></script> -->
+  <script src="req.js"></script>
+  <script src="bundle.js"></script>
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+  <body ng-app="myapp">
+
+    <script src="app.js"></script>
+
+    <div ng-controller="TickerController as ctrl" >
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <h4 >Enter Ticker:</h4>
+          </div>
+          <div class="col-sm-3">
+            <input class="form-control" type="text" ng-model="ctrl.searchString" ng-change="ctrl.onSearchChanged()" />
+          </div>
+          <div class="col-sm-3">
+            <select class="form-control" ng-options="o.FIELD1 for o in ctrl.companies"
+                ng-model="ctrl.selectedCompany"
+                ng-change="ctrl.companySelected()">
+            </select>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+        <tr ng-show="sub!=null" ng-repeat="sub in ctrl.subscriptions">
+          <td class="col-md-4 vert-align">{{sub.symbol}}</td>
+          <td class="col-md-2 vert-align">{{sub.price |  currency:"GBP":2}}</td>
+          <td class="col-md-2 vert-align"><button class="btn btn-primary"  ng-click="ctrl.endSubscription(sub)">disconnect</button></td>
+        </tr>
+      </table>
+    </div>
+
+    </body>
+
+
+</html>
